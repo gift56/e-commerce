@@ -5,9 +5,16 @@ import { ShoppingCart } from '@material-ui/icons'
 
 const Navbar = () => {
     return (
-        <div>
-
-        </div>
+        <>
+            <AppBar position='fixed' className={classes.appBar} color='inherit'>
+                <Toolbar>
+                    <Typography variant='h6' className={classes.title} color='inherit'>
+                        <img src="" alt="commercesLogo" height="25px" className={classes.image} />
+                        Commerce-World
+                    </Typography>
+                </Toolbar>
+            </AppBar>
+        </>
     )
 }
 
