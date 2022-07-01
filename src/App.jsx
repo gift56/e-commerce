@@ -18,8 +18,10 @@ const App = () => {
 
     useEffect(() => {
         fetchProducts();
+        fetchCart();
     }, [])
 
+    console.log(cart)
     return (
         <div>
             <Navbar />
