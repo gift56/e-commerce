@@ -3,9 +3,8 @@ import { Container, Button, Typography, Grid } from '@material-ui/core';
 import useStyles from './styles';
 
 const Cart = ({ cart }) => {
-
+    const isEmpty = false;
     const classes = useStyles();
-    const isEmpty = cart.line_items.length === 0;
 
     console.log(cart)
 
@@ -22,6 +21,7 @@ const Cart = ({ cart }) => {
                             <div>{item.name}</div>
                         </Grid>
                     ))} */}
+                    hello
                 </Grid>
                 <div className={classes.cardDetails}>
                     <Typography variant='h3'>SubTotal: $50</Typography>
