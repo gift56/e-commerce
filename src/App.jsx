@@ -28,11 +28,12 @@ const App = () => {
     }, [])
 
     console.log(Products)
+    console.log(cart)
     return (
         <div>
             <Navbar totalItems={cart.total_items} />
             {/* <Products products={products} onAddToCart={handleAddToCart} /> */}
-            <Cart  />
+            <Cart cart={cart} />
         </div>
     )
 }
