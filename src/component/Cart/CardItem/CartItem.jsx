@@ -11,7 +11,14 @@ const CartItem = ({ item }) => {
                 <Typography variant='h4'>{item.name}</Typography>
                 <Typography variant='h5'>{item.line_total.formatted_with_symbol}</Typography>
             </CardContent>
-            
+            <CardActions className={classes.cardActions}>
+                <div className={classes.button}>
+                    <Button type='button' size='small'>-</Button>
+                    <Typography>{item.quantity}</Typography>
+                    <Button type='button' size='small'>+</Button>
+                </div>
+                <Button type='button' variant='contained' color='secondary'>Remove</Button>
+            </CardActions>
         </Card>
     )
 }
