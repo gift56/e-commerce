@@ -2,12 +2,15 @@ import React from 'react';
 import { Typography, Button, Card, CardActions, CardContent, CardMedia } from '@material-ui/core';
 import useStyle from './styles';
 
-const CartItem = () => {
+const CartItem = ({ item }) => {
     const classes = useStyle();
     return (
-        <div>
+        <Card>
+            <CardMedia image={item.image.url} alt={item.name} className={classes.media} />
+            <CardContent className={classes.cardContent}> 
 
-        </div>
+            </CardContent>
+        </Card>
     )
 }
 
