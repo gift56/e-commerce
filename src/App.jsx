@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { commerce } from './lib/commerce';
 import { Products, Navbar, Cart } from './component';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const App = () => {
     const [products, setProducts] = useState([]);
