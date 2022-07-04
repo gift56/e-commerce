@@ -25,5 +25,8 @@ export default makeStyles((theme) => ({
         justifyContent: 'space-between',
         marginTop: '10%',
         width: '100%'
+    },
+    btnColor: {
+        color: 'white'
     }
 }));
