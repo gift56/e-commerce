@@ -5,9 +5,9 @@ import useStyles from './styles';
 import AddressForm from '../AddressForm';
 import PaymentForm from '../PaymentForm';
 
-console.log(CircularProgress)
-console.log(Divider)
-console.log(Button)
+console.log(CircularProgress);
+console.log(Divider);
+console.log(Button);
 const steps = ['Shipping address', 'Payment details'];
 
 const Checkout = ({ cart }) => {
