@@ -6,7 +6,7 @@ import Review from './Review';
 
 const stripePromise = loadStripe('...')
 
-const PaymentForm = ({ checkoutToken }) => {
+const PaymentForm = ({ checkoutToken, backStep }) => {
     return (
         <>
             <Review checkoutToken={checkoutToken} />
