@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { InputLabel, Select, MenuItem, Button, Grid, Typography } from '@material-ui/core';
 import { useForm, FormProvider } from 'react-hook-form';
+import { commerce } from '../../lib/commerce';
 import FormInput from './CustomTextField';
 console.log(Button);
 
@@ -11,8 +12,13 @@ const AddressForm = () => {
     const [shippingSubdivision, setShippingSubdivision] = useState('');
     const [shippingOptions, setShippingOptions] = useState([]);
     const [shippingOption, setShippingOption] = useState('');
-    
     const methods = useForm();
+
+    const fetchShippingCountries = async (checkoutTokenId) => {
+        const { countries } = await commerce.services.localeListShippingCountries(checkoutTokenId);
+
+        setShippingCountries(countries)
+    }
     return (
         <>
             <Typography variant='h6' gutterBottom>Shipping Address</Typography>
