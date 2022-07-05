@@ -19,7 +19,8 @@ const PaymentForm = ({ checkoutToken }) => {
                             <CardElement />
                             <br /> <br />
                             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                <Button></Button>
+                                <Button variant='outlined'>Back</Button>
+                                <Button type='submit' variant='contained'>Back</Button>
                             </div>
                         </form>
                     )}
