@@ -44,12 +44,12 @@ const AddressForm = ({ checkoutToken }) => {
             <FormProvider {...methods}>
                 <form onSubmit=''>
                     <Grid container spacing={3}>
-                        <FormInput required name='firstName' label='First Name' />
-                        <FormInput required name='lastName' label='Last Name' />
-                        <FormInput required name='address1' label='Address' />
-                        <FormInput required name='email' label='Email' />
-                        <FormInput required name='city' label='City' />
-                        <FormInput required name='zip' label='Zip / Postal code' />
+                        <FormInput name='firstName' label='First Name' />
+                        <FormInput name='lastName' label='Last Name' />
+                        <FormInput name='address1' label='Address' />
+                        <FormInput name='email' label='Email' />
+                        <FormInput name='city' label='City' />
+                        <FormInput name='zip' label='Zip / Postal code' />
                         <Grid item xs={12} sm={6}>
                             <InputLabel>Shipping Country</InputLabel>
                             <Select value={shippingCountry} fullWidth onChange={(e) => setShippingCountry(e.target.value)}>
