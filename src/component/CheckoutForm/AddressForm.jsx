@@ -15,6 +15,9 @@ const AddressForm = ({ checkoutToken }) => {
     const methods = useForm();
 
     const countries = Object.entries(shippingCountries).map(([code, name]) => ({ id: code, label: name }))
+    const subdivisions = Object.entries(shippingSubdivisions).map(([code, name]) => ({ id: code, label: name }))
+
+    console.log(subdivisions)
 
     const fetchShippingCountries = async (checkoutTokenId) => {
         const { countries } = await commerce.services.localeListShippingCountries(checkoutTokenId);
@@ -35,9 +38,9 @@ const AddressForm = ({ checkoutToken }) => {
     }, []);
 
     useEffect(() => {
-        fetchSubdivisons(shippingCountry)
+        if (shippingCountry) fetchSubdivisons(shippingCountry)
     }, [shippingCountry]);
-    
+
     return (
         <>
             <Typography variant='h6' gutterBottom>Shipping Address</Typography>
@@ -54,19 +57,19 @@ const AddressForm = ({ checkoutToken }) => {
                             <InputLabel>Shipping Country</InputLabel>
                             <Select value={shippingCountry} fullWidth onChange={(e) => setShippingCountry(e.target.value)}>
                                 {countries.map((country) => (
-                                    <MenuItem key={country.id} value={country.id}>
-                                        {country.label}
-                                    </MenuItem>
+                                    <MenuItem key={country.id} value={country.id}>{country.label}</MenuItem>
+                                ))}
+                            </Select>
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <InputLabel>Shipping Subdivision</InputLabel>
+                            <Select value={shippingSubdivision} fullWidth onChange={(e) => setShippingSubdivision(e.target.value)}>
+                                {subdivisions.map((subdivision) => (
+                                    <MenuItem key={subdivision.id} value={subdivision.id}>{subdivision.label}</MenuItem>
                                 ))}
                             </Select>
                         </Grid>
                         {/* <Grid item xs={12} sm={6}>
-                            <InputLabel>Shipping Subdivision</InputLabel>
-                            <Select fullWidth>
-                                <MenuItem>Select Me</MenuItem>
-                            </Select>
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
                             <InputLabel>Shipping Options</InputLabel>
                             <Select fullWidth>
                                 <MenuItem>Select Me</MenuItem>
