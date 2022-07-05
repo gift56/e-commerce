@@ -15,7 +15,12 @@ const AddressForm = () => {
             <FormProvider {...methods}>
                 <form onSubmit=''>
                     <Grid container spacing={3}>
-                        <FormInput name='firstName' label='First Name'/>
+                        <FormInput required name='firstName' label='First Name'/>
+                        <FormInput required name='lastName' label='Last Name'/>
+                        <FormInput required name='address1' label='Address'/>
+                        <FormInput required name='email' label='Email'/>
+                        <FormInput required name='city' label='City'/>
+                        <FormInput required name='zip' label='Zip / Postal code'/>
                     </Grid>
                 </form>
             </FormProvider>
