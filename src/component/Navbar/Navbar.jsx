@@ -1,5 +1,6 @@
 import React from 'react';
 import { AppBar, Toolbar, IconButton, Badge, Typography } from '@material-ui/core';
+
 import { ShoppingCart } from '@material-ui/icons';
 import logo from '../../assets/commercelogo.jpg';
 import useStyles from './styles';
@@ -19,10 +20,12 @@ const Navbar = ({ totalItems }) => {
                     <div className={classes.grow} />
                     {location.pathname === '/' && (
                         <div className={classes.button}>
-                            <IconButton component={Link} to='/cart' aria-label='Show cart items' color='inherit'>
-                                <Badge badgeContent={totalItems} color='secondary'>
-                                    <ShoppingCart />
-                                </Badge>
+                            <IconButton  aria-label='Show cart items' color='inherit'>
+                                <Link to='/cart' style={{color:'inherit'}}>
+                                    <Badge badgeContent={totalItems} color='secondary'>
+                                        <ShoppingCart />
+                                    </Badge>
+                                </Link>
                             </IconButton>
                         </div>)}
                 </Toolbar>
