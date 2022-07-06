@@ -6,8 +6,6 @@ import { Link } from 'react-router-dom';
 
 const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart }) => {
     const classes = useStyles();
-    console.log(cart);
-
 
     const EmptyCart = () => (
         <Typography variant='subtitle1'>Your have no items in your shopping cart, <Link to='/' className={classes.link}>start adding some</Link>!</Typography>
