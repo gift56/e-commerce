@@ -30,6 +30,12 @@ const PaymentForm = ({ checkoutToken, backStep }) => {
                     country: shippingData.shippingCountry
                 },
                 fulfillment: { shipping_method: shippingData.shippingOption },
+                payment: {
+                    gateway: 'stripe',
+                    stripe: {
+                        payment_method_id: paymentMethod.id
+                    }
+                }
             }
         }
     }
