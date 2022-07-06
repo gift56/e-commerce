@@ -68,16 +68,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
         </div >
     );
 
-    // if (error) {
-    //     <>
-    //         <Typography variant='h5'>Error: {error}</Typography>
-    //         <br />
-    //         <Button variant='outlined' type='button'><Link to='/' style={{ textDecoration: 'none' }} >Back To Home</Link></Button>
-    //     </>
-    // }
-
     const Form = () => activeStep === 0 ? <AddressForm checkoutToken={checkoutToken} next={next} /> : <PaymentForm shippingData={shippingData} checkoutToken={checkoutToken} nextStep={nextStep} backStep={backStep} onCaptureCheckout={onCaptureCheckout} timeOut={timeOut} />
-
 
     return (
         <>
