@@ -18,6 +18,19 @@ const PaymentForm = ({ checkoutToken, backStep }) => {
 
         if (error) {
             console.log(error)
+        } else {
+            const orderData = {
+                line_items: checkoutToken.live.line_items,
+                customer: { firstname: shippingData.firstName, lastname: shippingData.lastName, email: shippingData.email },
+                shipping: {
+                    name: 'Primary',
+                    street: shippingData.address1,
+                    town_city: shippingData.city,
+                    postal_zip: shippingData.zip,
+                    country: shippingData.shippingCountry
+                },
+                fulfillment: { shipping_method: shippingData.shippingOption },
+            }
         }
     }
     return (
