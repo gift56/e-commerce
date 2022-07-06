@@ -11,6 +11,10 @@ const PaymentForm = ({ checkoutToken, backStep }) => {
         e.preventDefault();
 
         if (!stripe || !elements) return;
+
+        const cardElement = elements.getElement(CardElement);
+
+        const { error, paymentMethod } = await stripe.createPaymentMethod({ type: 'card', card: cardElement });
     }
     return (
         <>
