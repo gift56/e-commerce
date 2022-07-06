@@ -6,7 +6,6 @@ import AddressForm from '../AddressForm';
 import PaymentForm from '../PaymentForm';
 
 console.log(CircularProgress);
-console.log(Divider);
 console.log(Button);
 const steps = ['Shipping address', 'Payment details'];
 
@@ -40,7 +39,11 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
 
     const Confirmation = () => (
         <>
-        
+            <div>
+                <Typography variant='h5'>Thank you for your Purchase, firstName lastName</Typography>
+                <Divider className={classes.divider} />
+
+            </div>
         </>
     )
 
