@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Button, Typography, Grid } from '@material-ui/core';
+import { Container, Button, Typography, Grid, CssBaseline } from '@material-ui/core';
 import useStyles from './styles';
 import CartItem from './CardItem/CartItem';
 import { Link } from 'react-router-dom';
@@ -23,7 +23,7 @@ const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart
                 ))}
             </Grid>
             <div className={classes.cardDetails}>
-                <Typography variant='h3'>SubTotal: {cart.subtotal.formatted_with_symbol}</Typography>
+                <Typography variant='h3' className={classes.title}>SubTotal: {cart.subtotal.formatted_with_symbol}</Typography>
                 <div>
                     <Button type='button' className={classes.emptyButton} size='large' variant='contained' color='secondary' onClick={handleEmptyCart}>Empty Cart</Button>
                     <Button type='button' className={classes.checkoutButton} size='large' variant='contained' color='primary'><Link to='/checkout' style={{ textDecoration: 'none' }} className={classes.btnColor}>Checkout</Link></Button>
@@ -33,11 +33,14 @@ const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart
     )
     if (!cart.line_items) return 'Loading....';
     return (
-        <Container>
-            <div className={classes.toolbar} />
-            <Typography className={classes.title} variant='h3' gutterBottom>Your Shopping Cart</Typography>
-            {!cart.line_items.length ? <EmptyCart /> : <FilledCart />}
-        </Container>
+        <>
+            <CssBaseline />
+            <Container>
+                <div className={classes.toolbar} />
+                <Typography className={classes.title} variant='h3' gutterBottom>Your Shopping Cart</Typography>
+                {!cart.line_items.length ? <EmptyCart /> : <FilledCart />}
+            </Container>
+        </>
     )
 }
 

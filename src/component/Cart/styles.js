@@ -3,7 +3,10 @@ import { makeStyles } from "@material-ui/core/styles";
 export default makeStyles((theme) => ({
     toolbar: theme.mixins.toolbar,
     title: {
-        marginTop: '5%'
+        marginTop: '5%',
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '2rem'
+        }
     },
     emptyButton: {
         minWidth: '150px',
