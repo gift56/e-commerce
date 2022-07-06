@@ -1,6 +1,5 @@
 import React from 'react';
 import { AppBar, Toolbar, IconButton, Badge, Typography } from '@material-ui/core';
-
 import { ShoppingCart } from '@material-ui/icons';
 import logo from '../../assets/commercelogo.jpg';
 import useStyles from './styles';
