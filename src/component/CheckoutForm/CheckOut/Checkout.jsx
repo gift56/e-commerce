@@ -12,6 +12,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
     const [activeStep, setActiveStep] = useState(0);
     const [checkoutToken, setCheckoutToken] = useState(null);
     const [shippingData, setShippingData] = useState({});
+    const [isFinished, setIsFinished] = useState(false);
     const classes = useStyles();
 
     useEffect(() => {
@@ -21,7 +22,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
 
                 setCheckoutToken(token);
             } catch (error) {
-                console.log(error);
+                console.log(error)
             }
         }
         generateToken();
@@ -36,6 +37,12 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
         nextStep();
     }
 
+    const timeOut = () => {
+        setTimeout(() => {
+            setIsFinished(true)
+        }, 3000);
+    }
+
     let Confirmation = () => order.customer ? (
         <>
             <div>
@@ -46,10 +53,19 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
             <br />
             <Button variant='outlined' type='button'><Link to='/' style={{ textDecoration: 'none' }} >Back To Home</Link></Button>
         </>
+    ) : isFinished ? (
+        <>
+            <div>
+                <Typography variant='h5'>Thank you for your purchase.</Typography>
+                <Divider className={classes.divider} />
+            </div>
+            <br />
+            <Button variant='outlined' type='button'><Link to='/' style={{ textDecoration: 'none' }} >Back To Home</Link></Button>
+        </>
     ) : (
         <div className={classes.spinner}>
             <CircularProgress />
-        </div>
+        </div >
     );
 
     // if (error) {
@@ -58,10 +74,9 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
     //         <br />
     //         <Button variant='outlined' type='button'><Link to='/' style={{ textDecoration: 'none' }} >Back To Home</Link></Button>
     //     </>
-
     // }
 
-    const Form = () => activeStep === 0 ? <AddressForm checkoutToken={checkoutToken} next={next} /> : <PaymentForm shippingData={shippingData} checkoutToken={checkoutToken} nextStep={nextStep} backStep={backStep} onCaptureCheckout={onCaptureCheckout} />
+    const Form = () => activeStep === 0 ? <AddressForm checkoutToken={checkoutToken} next={next} /> : <PaymentForm shippingData={shippingData} checkoutToken={checkoutToken} nextStep={nextStep} backStep={backStep} onCaptureCheckout={onCaptureCheckout} timeOut={timeOut} />
 
 
     return (
