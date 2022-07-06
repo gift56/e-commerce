@@ -5,8 +5,6 @@ import useStyles from './styles';
 import AddressForm from '../AddressForm';
 import PaymentForm from '../PaymentForm';
 
-console.log(CircularProgress);
-console.log(Button);
 const steps = ['Shipping address', 'Payment details'];
 
 const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
@@ -37,15 +35,21 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
         nextStep();
     }
 
-    const Confirmation = () => (
+    const Confirmation = () => order.customer ? (
         <>
             <div>
                 <Typography variant='h5'>Thank you for your Purchase, firstName lastName</Typography>
                 <Divider className={classes.divider} />
-
+                <Typography variant='subtitle2'>Order ref: ref</Typography>
             </div>
+            <br />
+            <Button variant='outlined' type='button'><Link to='/' style={{ textDecoration: 'none' }} >Back To Home</Link></Button>
         </>
-    )
+    ) : (
+        <div className={classes.spinner}>
+            <CircularProgress />
+        </div>
+    );
 
     const Form = () => activeStep === 0 ? <AddressForm checkoutToken={checkoutToken} next={next} /> : <PaymentForm shippingData={shippingData} checkoutToken={checkoutToken} nextStep={nextStep} backStep={backStep} onCaptureCheckout={onCaptureCheckout} />
 
