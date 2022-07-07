@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Button, Typography, Grid, CssBaseline } from '@mui/material';
+import { CssBaseline, Typography, Container, Button, Grid } from '@mui/material';
 import useStyles from './styles';
 import CartItem from './CardItem/CartItem';
 import { Link } from 'react-router-dom';
