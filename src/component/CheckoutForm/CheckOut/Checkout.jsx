@@ -6,6 +6,7 @@ import useStyles from './styles';
 import AddressForm from '../AddressForm';
 import PaymentForm from '../PaymentForm';
 
+
 const steps = ['Shipping address', 'Payment details'];
 
 const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
