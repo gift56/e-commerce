@@ -14,8 +14,8 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
     const [checkoutToken, setCheckoutToken] = useState(null);
     const [shippingData, setShippingData] = useState({});
     const [isFinished, setIsFinished] = useState(false);
-    const history = useNavigate()
     const classes = useStyles();
+    const history = useNavigate();
 
     useEffect(() => {
         const generateToken = async () => {
@@ -28,7 +28,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
             }
         }
         generateToken();
-    }, [cart])
+    }, [cart]);
 
     const nextStep = () => setActiveStep((prev) => prev + 1);
     const backStep = () => setActiveStep((prev) => prev - 1);

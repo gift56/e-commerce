@@ -32,10 +32,11 @@ const AddressForm = ({ checkoutToken, next }) => {
 
     useEffect(() => {
         fetchShippingCountries(checkoutToken.id);
-    }, []);
+    }, [checkoutToken.id]);
 
     useEffect(() => {
         if (shippingCountry) fetchShippingOptions(checkoutToken.id, shippingCountry)
+
     }, [shippingCountry]);
 
     return (
