@@ -70,3 +70,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 #### Done with the whole project
+
+##### You can view the live demo with this link <a href="https://e-commerce-nvvclhuxx-gift56.vercel.app">e-commerce-nvvclhuxx-gift56.vercel.app</a>
