@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Paper, Stepper, Step, StepLabel, Typography, CircularProgress, Divider, Button, CssBaseline } from '@mui/material';
+import { Paper, Stepper, Step, StepLabel, Typography, CircularProgress, Divider, Button, CssBaseline } from '@material-ui/core';
 import { commerce } from '../../../lib/commerce';
 import { Link, useNavigate } from 'react-router-dom';
 import useStyles from './styles';
